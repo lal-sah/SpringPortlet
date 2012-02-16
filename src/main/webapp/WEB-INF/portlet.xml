@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd"
+	version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd
+                        http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd">
+	<!-- <portlet> <description>HelloWorldPortletDescription</description> <portlet-name>HelloWorld</portlet-name> 
+		<display-name>Hello World Display</display-name> <portlet-class>com.sourceallies.portlets.HelloWorld</portlet-class> 
+		<expiration-cache>-1</expiration-cache> <supports> <mime-type>text/html</mime-type> 
+		<portlet-mode>VIEW</portlet-mode> <portlet-mode>HELP</portlet-mode> <portlet-mode>EDIT</portlet-mode> 
+		</supports> <supported-locale>en</supported-locale> <portlet-info> <title>Hello 
+		World Title</title> <short-title>Hello World Short Title</short-title> <keywords>Hello, 
+		Pluto</keywords> </portlet-info> </portlet> <portlet> <description>WeatherPortletDescription</description> 
+		<portlet-name>Weather</portlet-name> <display-name>Weather Display</display-name> 
+		<portlet-class>com.sourceallies.portlets.WeatherPortlet</portlet-class> <expiration-cache>-1</expiration-cache> 
+		<supports> <mime-type>text/html</mime-type> <portlet-mode>VIEW</portlet-mode> 
+		<portlet-mode>HELP</portlet-mode> <portlet-mode>EDIT</portlet-mode> </supports> 
+		<supported-locale>en</supported-locale> <portlet-info> <title>Weather Title</title> 
+		<short-title>Weather Short Title</short-title> <keywords>Weather, Pluto, 
+		Edit</keywords> </portlet-info> </portlet> -->
+
+	<!-- Spring MVC Weather Portlet -->
+	<!-- <portlet> <description>Weather Portlet using Spring MVC Application</description> 
+		<portlet-name>WeatherSpringMVCPortlet</portlet-name> <display-name>Weather 
+		Spring Portlet MVC Framework Portlet</display-name> <portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class> 
+		<init-param> <name>configLocation</name> <value>/WEB-INF/WeatherSpringMVCPortlet-portlet.xml</value> 
+		</init-param> <supports> <mime-type>text/html</mime-type> <portlet-mode>VIEW</portlet-mode> 
+		<portlet-mode>HELP</portlet-mode> <portlet-mode>EDIT</portlet-mode> </supports> 
+		<supported-locale>en</supported-locale> <portlet-info> <title>Weather Spring 
+		Portlet Title</title> <short-title>WeatherSpringPortletMVC</short-title> 
+		<keywords>spring mvc portlet</keywords> </portlet-info> </portlet> -->
+
+	<!-- JSF PortletFaces Bridge -->
+	<portlet>
+		<description>Weather Portlet JSF PortletFaces Bridge</description>
+		<portlet-name>weatherPortlet</portlet-name>
+		<display-name>Weather Portlet using JSF PortletFaces Bridge</display-name>
+		<portlet-class>org.portletfaces.bridge.GenericFacesPortlet</portlet-class>
+		<init-param>
+			<name>javax.portlet.faces.defaultViewId.view</name>
+			<value>/WEB-INF/xhtmls/view.xhtml</value>
+		</init-param>
+		<init-param>
+			<name>javax.portlet.faces.defaultViewId.edit</name>
+			<value>/WEB-INF/xhtmls/edit.xhtml</value>
+		</init-param>
+		<init-param>
+			<name>javax.portlet.faces.defaultViewId.help</name>
+			<value>/WEB-INF/xhtmls/help.xhtml</value>
+		</init-param>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>VIEW</portlet-mode>
+			<portlet-mode>HELP</portlet-mode>
+			<portlet-mode>EDIT</portlet-mode>
+		</supports>
+		<supported-locale>en</supported-locale>
+		<portlet-info>
+			<title>Weather Portlet (PortletFaces) Title</title>
+			<short-title>WeatherPortletPortletFacesTitle</short-title>
+			<keywords>weather portlet faces portlet</keywords>
+		</portlet-info>
+	</portlet>
+</portlet-app>

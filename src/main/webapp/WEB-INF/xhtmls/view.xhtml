@@ -1,0 +1,43 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+	<!--Session: ${session}<br />
+	View Controller: ${viewController}<br />
+	View Controller Weather Return: ${viewController.weatherReturn}<br />
+	View Controller Weather Return Temperature: ${viewController.weatherReturn.temperature}<br />
+	Temperature: 	#{viewController.weatherReturn.temperature} F<br />
+	EDIT TEST-->
+	<h:head />
+	<h:form>
+		<h4>
+			<h:outputText value="Time: #{viewController.currentTime}"
+				id="currentTime" />
+			<p:poll interval="1" listener="#{viewController.updateTime()}"
+				update="currentTime" />
+		</h4>
+		<h3>Check Weather</h3>
+	Please enter your Zip Code below to view weather update: <br />
+		<br />
+	Zip Code: <h:inputText value="#{viewController.zipCode}" />
+		<h:commandButton action="#{viewController.updateWeather()}"
+			value="Submit" />
+		<!-- <p:commandButton action="#{viewController.updateWeather()}"
+			value="Submit" update="cityState, temperature, desc" />-->
+		<h3>Weather at Zip Code: #{viewController.zipCode}</h3>
+		<i>Location: </i>
+		<h:outputText
+			value="#{viewController.weatherReturn.city}, #{viewController.weatherReturn.state}"
+			id="citystate" />
+		<br />
+		<i>Temperature: </i>
+		<h:outputText value="#{viewController.weatherReturn.temperature} °F"
+			id="temperature" />
+		<br />
+		<i>Description: </i>
+		<h:outputText value="#{viewController.weatherReturn.description}"
+			id="desc" />
+		<br />
+	</h:form>
+</ui:composition>

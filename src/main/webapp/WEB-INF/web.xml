@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>SpringPortlet</display-name>
+	<!-- JSF Configurations -->
+	<context-param>
+		<param-name>javax.faces.CONFIG_FILES</param-name>
+		<param-value>/WEB-INF/faces-config.xml</param-value>
+	</context-param>
+	<context-param>
+		<param-name>javax.faces.PROJECT_STAGE</param-name>
+		<param-value>Development</param-value>
+	</context-param>
+	<context-param>
+		<param-name>javax.faces.PARTIAL_STATE_SAVING</param-name>
+		<param-value>false</param-value>
+	</context-param>
+	<!-- <servlet> <servlet-name>WeatherViewRendererServlet</servlet-name> <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class> 
+		</servlet> <servlet-mapping> <servlet-name>WeatherViewRendererServlet</servlet-name> 
+		<url-pattern>/WEB-INF/servlet/view</url-pattern> </servlet-mapping> -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
+	<servlet>
+		<servlet-name>Faces Servlet</servlet-name>
+		<servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<!-- Prevent direct access to Facelet view XHTML by the userAgent (browser). -->
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Facelet View XHTML</web-resource-name>
+			<url-pattern>*.xhtml</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>nobody</role-name>
+		</auth-constraint>
+	</security-constraint>
+	<security-role>
+		<role-name>nobody</role-name>
+	</security-role>
+	<!-- <servlet-mapping> <servlet-name>Faces Servlet</servlet-name> <url-pattern>*.xhtml</url-pattern> 
+		</servlet-mapping> -->
+</web-app>
